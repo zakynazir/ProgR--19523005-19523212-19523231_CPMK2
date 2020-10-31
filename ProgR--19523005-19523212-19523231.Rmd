@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+ 
+
+```{r}
+#1) Set
+library(matlib)
+U <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)
+B <- c(2,3,5,7,11,13,17,19)
+C <- c(2,4,6,8,10,12,14,16,18)
+A <- c(1:10)
+
+U
+B
+C
+A
+
+```
+```{r}
+AuB <- union(A,B)
+AuB
+AuBuC <- union(AuB,C)
+AuBuC
+```
+```{r}
+#2) Function
+library(matlib)
+
+  f1 <- function(x){
+    result <- x^3 + x^2 - 6
+    return(result)
+  }
+  
+  plot(f1)
+
+
+```
+```{r}
+
+  f2 <- function(x){
+    result <- -x^2 - 6
+    return(result)
+  }
+
+  plot(f2)
+
+```
+```{r}
+#3) Limit
+library(Ryacas)
+
+yac_str("Limit(x,0) (x^4 - x^2)/(x^3 + x^2)*(sin(x)/x) + cos(x)")
+
+yac_expr("Limit(x,0) (x^4 - x^2)/(x^3 + x^2)*(sin(x)/x) + cos(x)")
+
+```
+```{r}
+#4) Differentiation
+
+yac_expr("D(x) (sin(x^2))/(x^2)*(x+1)")
+  
+
+```
+
+```{r}
+#5) Integration
+library(Ryacas0)
+
+x <- Sym("x")
+Integrate(x^2*cos(x^3+pi)*sin(x^3+pi),x)
+
+
+
+```
+
